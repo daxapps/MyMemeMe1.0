@@ -8,10 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottumTextField: UITextField!
+    
+    let topDelegate = TopTextFieldDelegate()
+    let bottumDelegate = BottumTextFieldDelegate()
+    
+    let picker:UIImagePickerController = UIImagePickerController()
+    
+    var memeData: MemeData.Data = MemeData.data
+    
     
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
@@ -30,7 +40,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.topTextField.delegate = self.topDelegate
+        self.bottumTextField.delegate = self.bottumDelegate
+        
     }
 
     @IBAction func pickAnImageFromAlbum(_ sender: AnyObject) {
@@ -49,13 +62,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.black,
-        NSForegroundColorAttributeName : UIColor.white,
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : NSNumber(value: 3.0)//TODO: Fill in appropriate Float
-    ]
-    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
 
 
 }
