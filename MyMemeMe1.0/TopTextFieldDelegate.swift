@@ -11,10 +11,10 @@ import UIKit
 
 class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
         
         var newText = textField.text! as NSString
-        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        newText = newText.replacingCharacters(in: range, with: string) as NSString
         
         func setupTextField(string: String, textField: UITextField) {
             let memeTextAttributes = [
@@ -37,7 +37,7 @@ class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
         return newText
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
         return true

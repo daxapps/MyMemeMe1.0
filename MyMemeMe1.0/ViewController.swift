@@ -13,14 +13,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var bottumTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     let topDelegate = TopTextFieldDelegate()
-    let bottumDelegate = BottumTextFieldDelegate()
+    let bottumDelegate = BottomTextFieldDelegate()
     
     let picker:UIImagePickerController = UIImagePickerController()
     
-    var memeData: MemeData.Data = MemeData.data
+//    var memeData: MemeData.Data = MemeData.data
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         self.topTextField.delegate = self.topDelegate
-        self.bottumTextField.delegate = self.bottumDelegate
+        self.bottomTextField.delegate = self.bottumDelegate
         
     }
 
@@ -62,10 +63,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-    }
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        unsubscribeFromKeyboardNotifications()
+//    }
 
 
 }

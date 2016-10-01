@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="height" constant="44" id="1Eu-vs-S12"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="JxE-k0-tdm"/>
+                                    <barButtonItem systemItem="action" id="JxE-k0-tdm"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KOq-Dr-U0A"/>
                                     <barButtonItem systemItem="cancel" id="JEO-5x-oNZ"/>
                                 </items>
@@ -56,7 +56,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTUM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLK-Kx-IZR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLK-Kx-IZR">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="25"/>
@@ -82,9 +82,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottumTextField" destination="FLK-Kx-IZR" id="nd4-cL-5vU"/>
+                        <outlet property="bottomTextField" destination="FLK-Kx-IZR" id="Bcs-jv-PR1"/>
                         <outlet property="cameraButton" destination="GE3-C0-wLh" id="A6h-q5-ybv"/>
                         <outlet property="imagePickerView" destination="NUf-yp-B34" id="IKA-eD-WHg"/>
+                        <outlet property="shareButton" destination="JxE-k0-tdm" id="g59-Cy-4e4"/>
                         <outlet property="topTextField" destination="27m-RS-gPe" id="0CA-2L-Kxg"/>
                     </connections>
                 </viewController>

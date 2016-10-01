@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class BottumTextFieldDelegate: NSObject, UITextFieldDelegate {
+class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
         
         var newText = textField.text! as NSString
-        newText = newText.replacingCharacters(in: range, with: string)
+        newText = newText.replacingCharacters(in: range, with: string) as NSString
         
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.black,
@@ -23,7 +23,7 @@ class BottumTextFieldDelegate: NSObject, UITextFieldDelegate {
             NSStrokeWidthAttributeName : NSNumber(value: 3.0)//TODO: Fill in appropriate Float
         ]
         
-        let bottumTextField.defaultTextAttributes = memeTextAttributes
+//        let bottomTextField.defaultTextAttributes = memeTextAttributes
         
         return newText
     }
