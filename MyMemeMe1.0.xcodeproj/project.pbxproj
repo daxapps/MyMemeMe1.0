@@ -12,8 +12,6 @@
 		E06BB4CE1D9303BD00F264F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06BB4CC1D9303BD00F264F6 /* Main.storyboard */; };
 		E06BB4D01D9303BD00F264F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06BB4CF1D9303BD00F264F6 /* Assets.xcassets */; };
 		E06BB4D31D9303BD00F264F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06BB4D11D9303BD00F264F6 /* LaunchScreen.storyboard */; };
-		E0C9D7511D93E8CC00D9D6B5 /* TopTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9D7501D93E8CC00D9D6B5 /* TopTextFieldDelegate.swift */; };
-		E0C9D7531D93E8E900D9D6B5 /* BottomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9D7521D93E8E900D9D6B5 /* BottomTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +22,6 @@
 		E06BB4CF1D9303BD00F264F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06BB4D21D9303BD00F264F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E06BB4D41D9303BD00F264F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0C9D7501D93E8CC00D9D6B5 /* TopTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTextFieldDelegate.swift; sourceTree = "<group>"; };
-		E0C9D7521D93E8E900D9D6B5 /* BottomTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +60,6 @@
 				E06BB4CF1D9303BD00F264F6 /* Assets.xcassets */,
 				E06BB4D11D9303BD00F264F6 /* LaunchScreen.storyboard */,
 				E06BB4D41D9303BD00F264F6 /* Info.plist */,
-				E0C9D7501D93E8CC00D9D6B5 /* TopTextFieldDelegate.swift */,
-				E0C9D7521D93E8E900D9D6B5 /* BottomTextFieldDelegate.swift */,
 			);
 			path = MyMemeMe1.0;
 			sourceTree = "<group>";
@@ -143,10 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C9D7511D93E8CC00D9D6B5 /* TopTextFieldDelegate.swift in Sources */,
 				E06BB4CB1D9303BD00F264F6 /* ViewController.swift in Sources */,
 				E06BB4C91D9303BD00F264F6 /* AppDelegate.swift in Sources */,
-				E0C9D7531D93E8E900D9D6B5 /* BottomTextFieldDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

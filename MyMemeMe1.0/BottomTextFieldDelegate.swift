@@ -11,26 +11,34 @@ import UIKit
 
 class BottomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
-        
-        var newText = textField.text! as NSString
-        newText = newText.replacingCharacters(in: range, with: string) as NSString
-        
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.black,
-            NSForegroundColorAttributeName : UIColor.white,
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 25)!,
-            NSStrokeWidthAttributeName : NSNumber(value: 3.0)//TODO: Fill in appropriate Float
-        ]
-        
-//        let bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        return newText
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
-    }
+//    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
+//        
+//        var newText = textField.text! as NSString
+//        newText = newText.replacingCharacters(in: range, with: string) as NSString
+//        
+//        func setupTextField(string: String, textField: UITextField) {
+//            let memeTextAttributes = [
+//                NSStrokeColorAttributeName : UIColor.black,
+//                NSForegroundColorAttributeName : UIColor.white,
+//                NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+//                NSStrokeWidthAttributeName : -3 
+//            ] as [String : Any]
+//            
+//            let attributedString = NSAttributedString(string: string, attributes: memeTextAttributes)
+//            textField.attributedText = attributedString
+//            textField.defaultTextAttributes = memeTextAttributes
+//            textField.textAlignment = .center
+//            textField.delegate = self
+//        }
+//        
+////        let bottomTextField.defaultTextAttributes = memeTextAttributes
+//        
+//        return newText
+//    }
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        
+//        return true
+//    }
 }

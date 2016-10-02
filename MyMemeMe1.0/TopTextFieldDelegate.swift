@@ -11,35 +11,58 @@ import UIKit
 
 class TopTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
-        
-        var newText = textField.text! as NSString
-        newText = newText.replacingCharacters(in: range, with: string) as NSString
-        
-        func setupTextField(string: String, textField: UITextField) {
-            let memeTextAttributes = [
-                NSStrokeColorAttributeName : UIColor.black,
-                NSForegroundColorAttributeName : UIColor.white,
-                NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-                NSStrokeWidthAttributeName : -3
-            ] as [String : Any]
-            
-            let attributedString = NSAttributedString(string: string, attributes: memeTextAttributes)
-            textField.attributedText = attributedString
-            textField.defaultTextAttributes = memeTextAttributes
-            // Text should be center-aligned
-            textField.textAlignment = .center
-            textField.delegate = self
-        }
-        
-//        let topTextField.defaultTextAttributes = memeTextAttributes
-        
-        return newText
-    }
+//    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> NSString {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         
-        return true
-    }
+        
+//        func textFieldDidEndEditing(_ textField: UITextField) {
+//            
+//            print("TextField did end editing method called\(textField.text)")
+//        }
+//        
+//        func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+//            
+//            print("TextField should begin editing method called")
+//            return true;
+//        }
+//        
+//        func textFieldShouldClear(textField: UITextField) -> Bool {
+//            
+//            print("TextField should clear method called")
+//            return true;
+//        }
+//        
+//        func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+//            print("TextField should end editing method called")
+//            return true;
+//        }
+        
+//        var newText = textField.text! as NSString
+//        newText = newText.replacingCharacters(in: range, with: string) as NSString
+//        
+//        func setupTextField(string: String, textField: UITextField) {
+//            let memeTextAttributes = [
+//                NSStrokeColorAttributeName : UIColor.black,
+//                NSForegroundColorAttributeName : UIColor.white,
+//                NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+//                NSStrokeWidthAttributeName : -3,
+//            ] as [String : Any]
+//            
+//            let attributedString = NSAttributedString(string: string, attributes: memeTextAttributes)
+//            textField.attributedText = attributedString
+//            textField.defaultTextAttributes = memeTextAttributes
+//            textField.textAlignment = .center
+//            textField.delegate = self
+//        }
+//        
+////        let topTextField.defaultTextAttributes = memeTextAttributes
+//        
+//        return newText
+//    }
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        
+//        return true
+//    }
 }
