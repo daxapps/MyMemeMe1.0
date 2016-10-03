@@ -10,25 +10,21 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var memeImage: UIImageView!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var memeImage: UIImageView!    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navigationBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     
     struct Meme {
         let topText: String?
-        let bottomTextString: String?
+        let bottomText: String?
         let originalImage: UIImage?
         let memeImage: UIImage        
-    }
-    
-    // raw values correspond to sender tags
-    enum sourceType : Int {
-        case photoLibrary = 0,camera
     }
     
     override func viewDidLoad() {
@@ -41,6 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+        // will disable camera button if not available
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     }
     
@@ -50,13 +47,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override var prefersStatusBarHidden : Bool {
-        return true     // status bar should be hidden
+        return true  
     }
     
     func reset(){
-        memeImage.image=nil
-        topTextField.text="TOP"
-        bottomTextField.text="BOTTOM"
+        memeImage.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
         shareButton.isEnabled = false
     }
     
@@ -79,14 +76,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillShow(_ notification: Notification) {
+    func keyboardWillShow(_ notification: NSNotification) {
         resetViewFrame()
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    func keyboardWillHide(_ notification: NSNotification) {
         if bottomTextField.isFirstResponder {
             resetViewFrame()
         }
@@ -96,9 +93,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.view.frame.origin.y = 0
     }
     
-    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
-        let userInfo = (notification as NSNotification).userInfo!
-        let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+    func getKeyboardHeight(_ notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
     
@@ -112,6 +109,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return true
     }
     
+    // default text is cleared when user taps on textfield
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
@@ -141,18 +139,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-        _ = Meme(topText: topTextField.text, bottomTextString: bottomTextField.text, originalImage: memeImage.image, memeImage: generateMemedImage())
+        _ = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: memeImage.image, memeImage: generateMemedImage())
     }
     
     func generateMemedImage() -> UIImage {
-        
         hideToolbar(true)
+        
+        // render view to image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         hideToolbar(false)
+        
         return memedImage
     }
     
@@ -160,22 +160,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         reset()
     }
     
+//: MARK: Pick an image from photo library or camera
+    enum sourceType : Int {
+        case photoLibrary = 0, camera
+    }
     
     @IBAction func pickAnImage(_ sender: AnyObject) {
-        
         memeImage.image=nil
         let imagePicker = UIImagePickerController()
-        imagePicker.delegate=self
+        imagePicker.delegate = self
         
         switch (sourceType(rawValue: sender.tag)!) {
         case .photoLibrary:
-            imagePicker.sourceType=UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         case .camera:
-            imagePicker.sourceType=UIImagePickerControllerSourceType.camera
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
         }
         
         present(imagePicker, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
