@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyMemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeViewController" customModule="MyMemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -73,15 +73,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="27m-RS-gPe" firstAttribute="top" secondItem="wLB-eF-eEZ" secondAttribute="bottom" constant="71" id="0TU-Kd-PiR"/>
                             <constraint firstAttribute="trailing" secondItem="rRr-dG-oQV" secondAttribute="trailing" id="2Sp-YP-ObC"/>
-                            <constraint firstItem="rRr-dG-oQV" firstAttribute="top" secondItem="FLK-Kx-IZR" secondAttribute="bottom" constant="71" id="4I1-mx-z56"/>
                             <constraint firstItem="wLB-eF-eEZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="50g-PY-LLx"/>
                             <constraint firstItem="NUf-yp-B34" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="8jR-pn-KQj"/>
+                            <constraint firstItem="27m-RS-gPe" firstAttribute="top" secondItem="wLB-eF-eEZ" secondAttribute="bottom" constant="33" id="8xy-DJ-wOU"/>
                             <constraint firstItem="NUf-yp-B34" firstAttribute="top" secondItem="wLB-eF-eEZ" secondAttribute="bottom" constant="21" id="Elc-oh-ZRJ"/>
                             <constraint firstItem="FLK-Kx-IZR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GFe-pl-hm7"/>
                             <constraint firstItem="NUf-yp-B34" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="10" id="I2w-et-VOc"/>
                             <constraint firstAttribute="trailing" secondItem="wLB-eF-eEZ" secondAttribute="trailing" id="YA0-Jm-0hN"/>
+                            <constraint firstItem="rRr-dG-oQV" firstAttribute="top" secondItem="FLK-Kx-IZR" secondAttribute="bottom" constant="33" id="Zjn-fS-a24"/>
                             <constraint firstItem="rRr-dG-oQV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fUb-Oq-h4r"/>
                             <constraint firstItem="wLB-eF-eEZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="frH-Ti-icX"/>
                             <constraint firstItem="NUf-yp-B34" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pq9-Rb-wyu"/>

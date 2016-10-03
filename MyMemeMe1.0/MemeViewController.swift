@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeViewController.swift
 //  MyMemeMe1.0
 //
 //  Created by Jason Crawford on 9/21/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var memeImage: UIImageView!    
     @IBOutlet weak var topTextField: UITextField!
@@ -18,14 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
-    
-    struct Meme {
-        let topText: String?
-        let bottomText: String?
-        let originalImage: UIImage?
-        let memeImage: UIImage        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,14 +64,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func subscribeToKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MemeViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MemeViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func keyboardWillShow(_ notification: NSNotification) {
         resetViewFrame()
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
@@ -90,7 +82,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func resetViewFrame(){
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(_ notification: NSNotification) -> CGFloat {
@@ -166,7 +158,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func pickAnImage(_ sender: AnyObject) {
-        memeImage.image=nil
+        memeImage.image = nil
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
